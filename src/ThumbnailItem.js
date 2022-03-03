@@ -10,14 +10,30 @@ class ThumbnailItem extends Lightning.Component {
       Thumbnail: {
         w: 100,
         h: 100,
-        alpha: 0.2,
+        alpha: 0.7,
       },
       Label: {
-        x: 52,
-        y: 52,
-        mount: 0.5,
         color: 0xfffaee55,
-        alpha: 1,
+        alpha: 0.9,
+        x: -16,
+        y: -22,
+        text: {
+          textAlign: "center",
+        //   highlight: true,
+        //   highlightColor: 0x88222222,
+          shadow: true,
+          shadowColor: 0xff000000,
+          fontSize: 32,
+        },
+      },
+      Description: {
+        y: 80,
+        x: 4,
+        text: {
+          fontFace: "Vera",
+          fontSize: 16,
+          textColor: 0x234798324,
+        },
       },
     };
   }
@@ -27,6 +43,11 @@ class ThumbnailItem extends Lightning.Component {
       Label: {
         text: {
           text: this.item.label,
+        },
+      },
+      Description: {
+        text: {
+          text: this.item.description,
         },
       },
       Thumbnail: {
