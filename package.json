@@ -1,0 +1,7 @@
+{
+  "name": "com.metrological.app.test",
+  "description": "test",
+  "dependencies": {
+    "@lightningjs/sdk": "^4.8.1"
+  }
+}
