@@ -67,6 +67,7 @@ export default class App extends Lightning.Component {
   _init() {
     this.tag("List").items = testItems.map((item) => ({
       label: item.title,
+      assetUrl: item.assetUrl,
     }));
   }
 

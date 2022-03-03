@@ -1,4 +1,4 @@
-import { Lightning } from "@lightningjs/sdk";
+import { Lightning, Utils } from "@lightningjs/sdk";
 
 class ThumbnailItem extends Lightning.Component {
   static _template() {
@@ -6,12 +6,18 @@ class ThumbnailItem extends Lightning.Component {
       rect: true,
       w: 100,
       h: 100,
-      color: 0x59faee55,
-      alpha: 0.7,
+      color: 0xff111111,
+      Thumbnail: {
+        w: 100,
+        h: 100,
+        alpha: 0.2,
+      },
       Label: {
         x: 52,
         y: 52,
         mount: 0.5,
+        color: 0xfffaee55,
+        alpha: 1,
       },
     };
   }
@@ -22,6 +28,9 @@ class ThumbnailItem extends Lightning.Component {
         text: {
           text: this.item.label,
         },
+      },
+      Thumbnail: {
+        src: Utils.asset(this.item.assetUrl),
       },
     });
   }

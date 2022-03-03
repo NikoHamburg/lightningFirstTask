@@ -7,12 +7,12 @@ const testItems = [
   {
     title: "test2",
     description: "this is test2.",
-    assetUrl: "images/logo.png",
+    assetUrl: "images/bigpic.jpg",
   },
   {
     title: "test3",
     description: "this is test3.",
-    assetUrl: "images/logo.png",
+    assetUrl: "images/skoomi.png",
   },
 ];
 
