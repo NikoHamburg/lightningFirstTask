@@ -20,6 +20,7 @@
 import { Lightning, Utils } from "@lightningjs/sdk";
 // import { Splash } from "./Splash";
 import { ThumbnailList } from "./ThumbnailList";
+import { Button } from "./Button";
 import { testItems } from "./testItems";
 
 export default class App extends Lightning.Component {
@@ -41,7 +42,23 @@ export default class App extends Lightning.Component {
       //   signals: { loaded: true },
       //   alpha: 1,
       // },
+      Buttons: {
+        LeftButton: {
+          x: 100,
+          y: 50,
+          type: Button,
+          buttonText: "Left",
+        },
+        RightButton: {
+          x: 300,
+          y: 50,
+          type: Button,
+          buttonText: "Right",
+        },
+      },
       List: {
+        x: 100,
+        y: 200,
         type: ThumbnailList,
       },
     };
@@ -51,5 +68,34 @@ export default class App extends Lightning.Component {
     this.tag("List").items = testItems.map((item) => ({
       label: item.title,
     }));
+  }
+
+  _handleUp() {
+    this._setState("Buttons");
+  }
+
+  _handleDown() {
+    this._setState("List");
+  }
+
+  static _states() {
+    return [
+      class Buttons extends this {
+        _handleLeft() {
+          this.buttonIndex = 0;
+        }
+        _handleRight() {
+          this.buttonIndex = 1;
+        }
+        _getFocused() {
+          return this.tag("Buttons").children[this.buttonIndex];
+        }
+      },
+      class List extends this {
+        _getFocused() {
+          return this.tag("List");
+        }
+      },
+    ];
   }
 }

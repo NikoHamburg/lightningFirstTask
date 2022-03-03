@@ -25,6 +25,18 @@ class ThumbnailItem extends Lightning.Component {
       },
     });
   }
+
+  _focus() {
+    this.patch({
+      smooth: { alpha: 1, scale: 1.2 },
+    });
+  }
+
+  _unfocus() {
+    this.patch({
+      smooth: { alpha: 0.8, scale: 1 },
+    });
+  }
 }
 
 export { ThumbnailItem };
